@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="pt-br" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>São Judas Performance | Oficina Mecânica & Preparação</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(10,10,10,1)), url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?q=80&w=2000&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        .checkered-mask {
+            background-image: linear-gradient(45deg, #ff0000 25%, transparent 25%), 
+                              linear-gradient(-45deg, #ff0000 25%, transparent 25%), 
+                              linear-gradient(45deg, transparent 75%, #ff0000 75%), 
+                              linear-gradient(-45deg, transparent 75%, #ff0000 75%);
+            background-size: 40px 40px;
+            background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+            opacity: 0.03;
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .btn-glow:hover {
+            box-shadow: 0 0 20px rgba(220, 38, 38, 0.6);
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float { animation: float 4s ease-in-out infinite; }
+    </style>
+</head>
+<body class="bg-black text-white selection:bg-red-600 overflow-x-hidden">
+
+    <!-- Configuração de Links Globais -->
+    <script>
+        const whatsappLink = "https://wa.me/5511963125016?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação.";
+        const instagramLink = "https://www.instagram.com/saojudasperformance/";
+    </script>
+
+    <!-- Header -->
+    <header class="fixed w-full z-[100] bg-black/90 backdrop-blur-xl border-b border-white/5 transition-all duration-300" id="main-header">
+        <div class="container mx-auto px-4 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center group">
+                <img src="sj.png" alt="São Judas Performance" class="h-12 md:h-14 w-auto transition-transform group-hover:scale-105">
+            </a>
+            
+            <nav class="hidden lg:flex items-center gap-10 text-[11px] font-black uppercase tracking-[0.2em]">
+                <a href="#servicos" class="hover:text-red-600 transition-colors">Serviços</a>
+                <a href="#sobre" class="hover:text-red-600 transition-colors">Sobre Nós</a>
+                <a href="#localizacao" class="hover:text-red-600 transition-colors">Localização</a>
+            </nav>
+
+            <a href="https://wa.me/5511963125016?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação." class="btn-glow bg-red-600 hover:bg-red-700 text-white px-5 md:px-8 py-3 rounded-full font-black uppercase italic text-xs md:text-sm tracking-wider transition-all flex items-center gap-2">
+                <i data-lucide="calendar-check" class="w-4 h-4"></i>
+                Agendar Avaliação
+            </a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden hero-bg">
+        <div class="absolute inset-0 checkered-mask"></div>
+        
+        <div class="container mx-auto px-4 relative z-10 pt-20">
+            <div class="flex flex-col items-center text-center max-w-5xl mx-auto">
+                <div class="reveal">
+                    <span class="inline-block border border-red-600 text-red-600 text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-[0.3em] mb-8 bg-red-600/5">
+                        Performance & Engenharia Automotiva
+                    </span>
+                </div>
+                
+                <h1 class="reveal text-5xl md:text-8xl font-black italic mb-8 leading-[0.9] uppercase tracking-tighter">
+                    Potência que <span class="text-red-600">emociona</span>,<br>
+                    precisão que <span class="text-red-600">liberta.</span>
+                </h1>
+                
+                <p class="reveal text-lg md:text-xl text-neutral-400 mb-10 max-w-2xl font-light leading-relaxed">
+                    Especialistas em preparação de motores turbos e aspirados. 
+                    Manutenção de alta performance para quem não aceita o comum.
+                </p>
+
+                <div class="reveal flex flex-col sm:flex-row gap-6 w-full sm:w-auto">
+                    <a href="https://wa.me/5511963125016?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação." class="btn-glow bg-white text-black px-12 py-5 rounded-sm font-black italic text-lg hover:bg-red-600 hover:text-white transition-all transform hover:-translate-y-1 flex items-center justify-center gap-3">
+                        <i data-lucide="zap" class="w-6 h-6 fill-current"></i>
+                        QUERO MAIS POTÊNCIA
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce opacity-30">
+            <i data-lucide="chevron-down" class="w-8 h-8"></i>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="servicos" class="py-32 bg-[#0a0a0a] relative">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="reveal glass p-10 rounded-3xl group hover:bg-red-600/10 transition-all duration-500 border-white/5">
+                    <div class="mb-8 p-4 bg-red-600 w-fit rounded-2xl shadow-[0_0_20px_rgba(220,38,38,0.4)]">
+                        <i data-lucide="gauge" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-black italic uppercase mb-4 tracking-tight">Preparação Premium</h3>
+                    <p class="text-neutral-500 leading-relaxed">Projetos customizados para carros turbos e aspirados. Otimização de software, hardware e acerto fino.</p>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="reveal glass p-10 rounded-3xl group hover:bg-red-600/10 transition-all duration-500 border-white/5" style="transition-delay: 100ms;">
+                    <div class="mb-8 p-4 bg-white w-fit rounded-2xl">
+                        <i data-lucide="wrench" class="w-8 h-8 text-black"></i>
+                    </div>
+                    <h3 class="text-2xl font-black italic uppercase mb-4 tracking-tight">Manutenção Técnica</h3>
+                    <p class="text-neutral-500 leading-relaxed">Revisões rigorosas para veículos originais ou modificados, garantindo confiabilidade máxima.</p>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="reveal glass p-10 rounded-3xl group hover:bg-red-600/10 transition-all duration-500 border-white/5" style="transition-delay: 200ms;">
+                    <div class="mb-8 p-4 bg-red-600 w-fit rounded-2xl shadow-[0_0_20px_rgba(220,38,38,0.4)]">
+                        <i data-lucide="cpu" class="w-8 h-8 text-white"></i>
+                    </div>
+                    <h3 class="text-2xl font-black italic uppercase mb-4 tracking-tight">Eletro-Eletrônica</h3>
+                    <p class="text-neutral-500 leading-relaxed">Diagnóstico avançado e instalação de injeções programáveis com chicotes sob medida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="sobre" class="py-32 bg-black border-y border-white/5">
+        <div class="container mx-auto px-4">
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="reveal relative">
+                    <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?q=80&w=1200&auto=format&fit=crop" alt="Motor de Performance" class="rounded-[2rem] grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl">
+                    <div class="absolute -bottom-6 -right-6 glass p-8 rounded-2xl animate-float">
+                        <div class="text-4xl font-black italic text-red-600">8+ ANOS</div>
+                        <div class="text-[10px] uppercase font-bold tracking-[0.2em] text-neutral-400">De experiência em pista e rua</div>
+                    </div>
+                </div>
+                
+                <div class="reveal">
+                    <h2 class="text-5xl font-black italic uppercase mb-8 leading-none">A oficina que entende sua <span class="text-red-600 underline decoration-red-600/30 underline-offset-8">obsessão.</span></h2>
+                    <p class="text-neutral-400 text-lg mb-8 leading-relaxed">
+                        Na São Judas Performance, não apenas trocamos peças. Nós aprimoramos experiências. Nossa equipe é formada por apaixonados que vivem o automobilismo 24 horas por dia.
+                    </p>
+                    <ul class="space-y-4 mb-10">
+                        <li class="flex items-center gap-3 text-neutral-300 font-semibold italic">
+                            <i data-lucide="check-circle-2" class="text-red-600"></i> ATENDIMENTO ESPECIALIZADO
+                        </li>
+                        <li class="flex items-center gap-3 text-neutral-300 font-semibold italic">
+                            <i data-lucide="check-circle-2" class="text-red-600"></i> TECNOLOGIA DE DIAGNÓSTICO OEM
+                        </li>
+                        <li class="flex items-center gap-3 text-neutral-300 font-semibold italic">
+                            <i data-lucide="check-circle-2" class="text-red-600"></i> TRANSPARÊNCIA TOTAL EM CADA PROJETO
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/5511963125016?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação." class="inline-flex items-center gap-4 text-red-600 font-black italic uppercase tracking-widest hover:gap-6 transition-all group">
+                        Fale com um especialista <i data-lucide="arrow-right" class="group-hover:translate-x-2 transition-transform"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Location Section (Map) -->
+    <section id="localizacao" class="py-32 bg-neutral-950">
+        <div class="container mx-auto px-4">
+            <div class="reveal text-center mb-16">
+                <h2 class="text-4xl font-black italic uppercase mb-4">Nossa <span class="text-red-600">Base</span></h2>
+                <p class="text-neutral-500">Venha nos visitar em Santa Paula, São Caetano do Sul.</p>
+            </div>
+
+            <div class="reveal overflow-hidden rounded-[2.5rem] border border-white/10 shadow-2xl relative h-[500px] group">
+                <!-- Google Maps Embed Real -->
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3655.8285521251393!2d-46.5619379246681!3d-23.61051517876541!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94ce5ce778847e29%3A0xc3f6a6c1e19d7a2!2sRua%20Marechal%20Deodoro%2C%20883%20-%20Santa%20Paula%2C%20S%C3%A3o%20Caetano%20do%20Sul%20-%20SP%2C%2009541-300!5e0!3m2!1spt-BR!2sbr!4v1715600000000!5m2!1spt-BR!2sbr" 
+                    width="100%" 
+                    height="100%" 
+                    style="border:0;" 
+                    allowfullscreen="" 
+                    loading="lazy" 
+                    referrerpolicy="no-referrer-when-downgrade"
+                    class="grayscale group-hover:grayscale-0 transition-all duration-700">
+                </iframe>
+                
+                <div class="absolute bottom-8 left-8 right-8 md:right-auto md:w-96 glass p-8 rounded-3xl pointer-events-none group-hover:translate-y-2 transition-transform">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="bg-red-600 p-2 rounded-lg"><i data-lucide="map-pin" class="w-5 h-5"></i></div>
+                        <span class="font-black italic uppercase text-sm">Onde a mágica acontece</span>
+                    </div>
+                    <p class="text-neutral-300 text-sm leading-relaxed mb-4">
+                        Rua Marechal Deodoro, 883<br>
+                        Santa Paula, São Caetano do Sul - SP
+                    </p>
+                    <div class="text-xs text-neutral-500 uppercase font-bold tracking-widest">Aberto: Seg - Sex, 08h às 18h</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Final CTA -->
+    <section class="py-32 bg-red-600 relative overflow-hidden">
+        <div class="absolute inset-0 checkered-mask opacity-10"></div>
+        <div class="container mx-auto px-4 relative z-10 text-center">
+            <h2 class="text-4xl md:text-6xl font-black italic uppercase mb-10 leading-none">Pronto para elevar o nível<br>do seu carro?</h2>
+            <a href="https://wa.me/5511963125016?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação." class="bg-black text-white px-12 py-6 rounded-full font-black italic text-xl hover:bg-neutral-900 transition-all shadow-2xl flex items-center justify-center gap-4 mx-auto w-fit">
+                <i data-lucide="message-square" class="w-8 h-8"></i>
+                Falar com especialista
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-20 bg-black border-t border-white/5 text-center">
+        <div class="container mx-auto px-4">
+            <img src="sj.png" alt="Logo" class="h-16 mx-auto mb-8 opacity-50">
+            <nav class="flex justify-center gap-8 mb-8 text-xs font-bold uppercase tracking-widest text-neutral-500">
+                <a href="#servicos" class="hover:text-white transition">Serviços</a>
+                <a href="#sobre" class="hover:text-white transition">Sobre</a>
+                <a href="#localizacao" class="hover:text-white transition">Localização</a>
+                <a href="https://www.instagram.com/saojudasperformance/" target="_blank" class="hover:text-white transition">Instagram</a>
+            </nav>
+            <p class="text-neutral-600 text-[10px] uppercase font-bold tracking-[0.2em]">
+                &copy; 2024 São Judas Performance. Todos os direitos reservados.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Botão Suspenso (Direita Inferior) -->
+    <div class="fixed bottom-8 right-8 z-[100]">
+        <!-- WhatsApp Flutuante Animado -->
+        <a href="https://wa.me/5511963125016?text=Olá!%20Vim%20pelo%20site%20e%20gostaria%20de%20agendar%20uma%20avaliação." class="group relative block">
+            <div class="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-20 group-hover:opacity-40"></div>
+            <div class="relative bg-green-600 w-16 h-16 rounded-full flex items-center justify-center shadow-[0_0_30px_rgba(22,163,74,0.4)] group-hover:scale-110 transition-all">
+                <i data-lucide="message-circle" class="text-white w-8 h-8"></i>
+            </div>
+        </a>
+    </div>
+
+    <script>
+        lucide.createIcons();
+        
+        // Efeito de Revelação (Scroll Reveal)
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        window.addEventListener("load", reveal); // Rodar no load inicial
+
+        // Efeito Header dinâmico
+        window.addEventListener('scroll', function() {
+            const header = document.getElementById('main-header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2', 'bg-black/95');
+                header.classList.remove('h-20');
+                header.classList.add('h-16');
+            } else {
+                header.classList.remove('py-2', 'bg-black/95');
+                header.classList.add('h-20');
+                header.classList.remove('h-16');
+            }
+        });
+    </script>
+</body>
+</html>
